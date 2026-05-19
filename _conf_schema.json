@@ -1,0 +1,61 @@
+{
+  "enable_repeat_filter": {
+    "description": "启用重复发言拦截",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后，若回复给同一 Session 的内容与上次相同，将触发重复发言拦截"
+  },
+  "repeat_ignore_whitespace": {
+    "description": "重复拦截忽略空白差异",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后，比对重复发言时会忽略所有空格、制表符等空白字符，使得仅仅带有空格的发言也能被有效拦截"
+  },
+  "repeat_block_notice": {
+    "description": "重复拦截提示词",
+    "type": "string",
+    "default": "",
+    "hint": "当触发重复拦截时回复给用户的提示词。如果留空，则不回复任何内容，静默拦截并清空回复"
+  },
+  "enable_word_filter": {
+    "description": "启用内容与错误拦截",
+    "type": "bool",
+    "default": true,
+    "hint": "是否对输出结果进行敏感词或系统异常报错信息拦截"
+  },
+  "filter_delete_words": {
+    "description": "仅删除词列表",
+    "type": "list",
+    "items": {
+      "type": "string"
+    },
+    "default": [],
+    "hint": "在输出结果中直接擦除这些关键词（不拦截整句话，只是把这些词语替换为空白字符串）"
+  },
+  "filter_block_words": {
+    "description": "拦截整条消息的关键词",
+    "type": "list",
+    "items": {
+      "type": "string"
+    },
+    "default": [
+      "请求失败",
+      "错误信息",
+      "Traceback",
+      "Exception"
+    ],
+    "hint": "若输出内容包含列表中的词（例如模型报错的 traceback 等异常文本），则会拦截整条消息并替换为提示词"
+  },
+  "filter_block_notice": {
+    "description": "内容被拦截时的回复提示",
+    "type": "string",
+    "default": "哎呀，系统刚才打了个盹，你可以换个话题或者稍后再试哦~",
+    "hint": "内容触发【拦截整条消息的关键词】时，回复给该用户的占位符文本。若留空则直接吞掉这条回复"
+  },
+  "enable_admin_notify": {
+    "description": "触发拦截时通知管理员",
+    "type": "bool",
+    "default": true,
+    "hint": "当检测到输出中包含拦截关键词时，会向 Bot 的配置管理员（admins_id）私聊推送拦截报告"
+  }
+}
