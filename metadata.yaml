@@ -1,5 +1,5 @@
 name: astrbot_plugin_output_pro_filter
 desc: 综合输出管理。包含重复发言拦截、敏感词过滤、错误屏蔽及管理员通知功能。
-help: ~输出过滤配置 查看状态。~开启重复拦截/~关闭重复拦截。~设置重复拦截提示 <内容>。~清空重复记录。更多命令请看 ~输出过滤配置。
+help: ~加输出拦截词 <词>。~加输出删除词 <词>。
 version: v1.0.0
 author: gabriel
